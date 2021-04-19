@@ -20,6 +20,7 @@ class Player:
                 if index == -1:
                     print("Card not found in hand!")
                 else:
+                    print("Card returned to deck")
                     deck.returnCard(self.hand.pop(index))
             else:
                 print("Incorrect suite!")
