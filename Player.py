@@ -15,12 +15,13 @@ class Player:
         if value in cardNum:
             if suite in suites:
                 for i in range(len(self.hand)):
-                    if self.hand[i].getValue() == value and self.hand[i].getSuite() == suite:
+                    if self.hand[i].getValue() == value and self.hand[i].getSuite().upper() == suite.upper():
                         index = i
                 if index == -1:
                     print("Card not found in hand!")
                 else:
-                    print("Card returned to deck")
+                    self.hand[index].printCard()
+                    print("The card has been returned to the deck!")
                     deck.returnCard(self.hand.pop(index))
             else:
                 print("Incorrect suite!")
@@ -40,7 +41,10 @@ if __name__ == "__main__":
     p1.drawCard(deck)
     p1.drawCard(deck)
     p1.showHand()
+    print("")
     p1.returnCard(deck, 13, "Diamond")
+    print("")
     p1.showHand()
+    print("")
     deck.printTopCard()
 
